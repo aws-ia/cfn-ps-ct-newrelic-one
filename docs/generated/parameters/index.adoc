@@ -1,0 +1,2 @@
+=== Parameters for deploying {partner-product-name}
+include::control-tower-customization.adoc[]
