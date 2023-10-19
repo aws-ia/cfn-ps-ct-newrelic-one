@@ -53,7 +53,7 @@ Parameters:
       - 'https://api.eu.newrelic.com/graphiql'
   QSS3BucketName:
     Type: String
-    Default: aws-ia-us-east-1
+    Default: aws-ia
     Description: "S3 bucket for Quick Start assets. Use this if you want to customize your deployment. The bucket name can include numbers, lowercase letters, uppercase letters, and hyphens, but it cannot start or end with hyphens (-)."
   QSS3KeyPrefix:
     Type: String
