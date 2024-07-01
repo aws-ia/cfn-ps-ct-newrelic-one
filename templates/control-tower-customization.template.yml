@@ -288,7 +288,7 @@ Resources:
     Properties:
       Description: Copies objects from the S3 bucket to a new location.
       Handler: index.handler
-      Runtime: python3.7
+      Runtime: python3.12
       Role: !GetAtt 'CopyZipsRole.Arn'
       Timeout: 240
       Code:
@@ -350,7 +350,7 @@ Resources:
         S3Bucket: !Ref LambdaZipsBucket
         S3Key: !Join ['', [!Ref 'QSS3KeyPrefix', 'functions/packages/onboarding/NewRelicCTOnboarding.zip']]
       Handler: onboarding.lambda_handler
-      Runtime: python3.7
+      Runtime: python3.12
       Timeout: 120
       Environment:
         Variables:
@@ -548,7 +548,7 @@ Resources:
         S3Bucket: !Ref LambdaZipsBucket
         S3Key: !Join ['', [!Ref 'QSS3KeyPrefix', 'functions/packages/stackset/NewRelicCTStackSet.zip']]
       Handler: stackset.lambda_handler
-      Runtime: python3.7
+      Runtime: python3.12
       Timeout: 120
       ReservedConcurrentExecutions: 1
       Environment:
@@ -624,7 +624,7 @@ Resources:
         S3Bucket: !Ref LambdaZipsBucket
         S3Key: !Join ['', [!Ref 'QSS3KeyPrefix', 'functions/packages/register/NewRelicCTRegister.zip']]
       Handler: register.lambda_handler
-      Runtime: python3.7
+      Runtime: python3.12
       Timeout: 120
       ReservedConcurrentExecutions: 5
       Environment:
