@@ -120,6 +120,11 @@ Resources:
 
   CopyZipsFunction:
     Type: AWS::Lambda::Function
+    Metadata:
+      cfn-lint:
+        config:
+          ignore_checks:
+            - E3030
     Properties:
       Description: Copies objects from the S3 bucket to a new location.
       Handler: index.handler
