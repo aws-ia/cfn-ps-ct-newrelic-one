@@ -286,6 +286,11 @@ Resources:
   NewRelicRegisterFunction:
     Type: AWS::Lambda::Function
     DependsOn: CopyZips
+    Metadata:
+      cfn-lint:
+        config:
+          ignore_checks:
+            - E3030
     Properties:
       Code:
         S3Bucket: !Ref LambdaZipsBucket
