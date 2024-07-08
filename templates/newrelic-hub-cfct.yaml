@@ -1,6 +1,10 @@
 AWSTemplateFormatVersion: 2010-09-09
 Description: AWS CfCT stack for New Relic designated hub account. This deployment launches as a stack set in your AWS Control Tower landing zone (qs-1rsuloqd4)
 Metadata:
+  cfn-lint:
+    config:
+      ignore_checks:
+        - E3030
   QuickStartDocumentation:
     EntrypointName: "Parameters for deploying New Relic AWS Control Tower integration"
   AWS::CloudFormation::Interface: 
