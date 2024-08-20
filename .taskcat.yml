@@ -5,11 +5,13 @@ project:
 tests:
   newrelic-onboarding-us-west-2:
     parameters:
+      NewRelicLicenseKey: ''
+      AdditionalParametersLicenseKey: ''
       NewRelicAccountNumber: ''
       LaunchAccountList: ''
       NewRelicAccessKey: ''
       StackSetName: 'NewRelic-Integration'
-      StackSetUrl: 'https://newrelic-aws-quickstart.s3.amazonaws.com/control-tower/templates/newrelic-stack-set.yml'
+      StackSetUrl: 'https://cfn-ps-ct-newrelic-one.s3.us-east-2.amazonaws.com/newrelic-stack-set.yml'
     regions:
       - us-west-2
     template: templates/control-tower-customization.template.yml
