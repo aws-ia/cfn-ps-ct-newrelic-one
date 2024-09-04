@@ -41,7 +41,7 @@ Parameters:
   NewRelicAccessKey:
     Type: String
     NoEcho: true
-    AllowedPattern: '^([A-Z0-9-]){32}$'
+    AllowedPattern: '^([A-Z0-9-]){40}$'
     ConstraintDescription: New Relic User key is 32 characters long, and contains only numbers and letters
     Description: New Relic NerdGraph User key. See https://docs.newrelic.com/docs/apis/intro-apis/new-relic-api-keys/#user-api-key
   NerdGraphEndpoint:
