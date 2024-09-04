@@ -41,8 +41,8 @@ Parameters:
   NewRelicAccessKey:
     Type: String
     NoEcho: true
-    AllowedPattern: '^([A-Z0-9-]){32}$'
-    ConstraintDescription: New Relic User key is 32 characters long, and contains only numbers and letters
+    AllowedPattern: '^[A-Za-z0-9]{40}$'
+    ConstraintDescription: New Relic User key is 40 characters long, and contains only numbers and letters
     Description: New Relic NerdGraph User key. See https://docs.newrelic.com/docs/apis/intro-apis/new-relic-api-keys/#user-api-key
   NerdGraphEndpoint:
     Type: String
@@ -120,10 +120,15 @@ Resources:
 
   CopyZipsFunction:
     Type: AWS::Lambda::Function
+    Metadata:
+      cfn-lint:
+        config:
+          ignore_checks:
+            - E3030
     Properties:
       Description: Copies objects from the S3 bucket to a new location.
       Handler: index.handler
-      Runtime: python3.7
+      Runtime: python3.12
       Role: !GetAtt 'CopyZipsRole.Arn'
       Timeout: 240
       Code:
@@ -286,12 +291,17 @@ Resources:
   NewRelicRegisterFunction:
     Type: AWS::Lambda::Function
     DependsOn: CopyZips
+    Metadata:
+      cfn-lint:
+        config:
+          ignore_checks:
+            - E3030
     Properties:
       Code:
         S3Bucket: !Ref LambdaZipsBucket
         S3Key: !Join ['', [!Ref 'QSS3KeyPrefix', !FindInMap ["SourceCode", "Key", "Register"]]]
       Handler: cfct_register.lambda_handler
-      Runtime: python3.7
+      Runtime: python3.12
       Timeout: 120
       ReservedConcurrentExecutions: 5
       Environment:
